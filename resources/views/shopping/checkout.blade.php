@@ -6,6 +6,7 @@
 @section('main')
   <div class="container">
   <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="{{ asset('image/cart.jpeg') }}" alt="" width="72" height="72">
     <h2>会計</h2>
   </div>
   <div class="row">
