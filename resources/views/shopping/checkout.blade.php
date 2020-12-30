@@ -4,6 +4,11 @@
 @section('title', 'Album example · Bootstrap')
 <!---->
 @section('main')
+@if (session('flash_message'))
+<div class="flash_message bg-success text-center py-3 my-0">
+    {{ session('flash_message') }}
+</div>
+@endif
   <div class="container">
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="{{ asset('image/cart.jpeg') }}" alt="" width="72" height="72">
@@ -108,7 +113,6 @@
             <label for="country">国</label>
             <select class="custom-select d-block w-100" name="country" id="country" required>
               <option value="">選択してください</option>
-              <option>アメリカ</option>
               <option>日本</option>
             </select>
             <div class="invalid-feedback">
@@ -119,7 +123,6 @@
             <label for="state">都道府県</label>
             <select class="custom-select d-block w-100" name="state" id="state" required>
               <option value="">選択してください</option>
-              <option>カリフォルニア</option>
               <option>千葉県</option>
             </select>
             <div class="invalid-feedback">
@@ -145,7 +148,7 @@
           <label class="custom-control-label" for="save-info">保存して次回からの入力を省略する</label>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">申し込みを続ける</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">購入完了</button>
       </form>
     </div>
   </div>

@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class shoppingModel extends Model
 {
-    protected $request;
-    protected $table = 'item_id';  //$tableプロパティでモデルとテーブルを紐づける。
-    // protected $user = ['first_name', 'last_name', 'username', 'email', 'address', 'address_2', 'country',  'state', 'zip'];
-
     /*
     ユーザー登録。データベスへ登録
     */

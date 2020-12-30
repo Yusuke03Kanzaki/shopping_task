@@ -41,11 +41,21 @@ class CheckoutController extends Controller
     }
 
     /*
-    ユーザー登録のためのモデル呼び出し。後にHPにリダイレクト
+    カートに商品がなければメッセージ表示後にリダイレクト。ユーザー登録のためのモデル呼び出し。セッション削除。HPにリダイレクト
     */
     function buy(Request $request)
     {
+        if (!is_countable(session()->get('item'))) {
+            session()->flash('flash_message', 'カートに商品がありません');
+
+            return redirect('/checkout');
+        }
+
         ShoppingModel::user($request);
+
+        $request->session()->flush();
+
+        session()->flash('flash_message', 'ご購入ありがとうございます');
 
         return redirect('/');
     }
@@ -64,6 +74,7 @@ class CheckoutController extends Controller
     function delete(Request $req)
     {
         $req->session()->flush();
+
         return redirect('checkout');
     }
 
