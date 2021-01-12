@@ -1,7 +1,7 @@
 <!--共通レイアウト-->
 @extends('shopping.base')
 <!---->
-@section('title', 'Album example · Bootstrap')
+@section('title', '商品ページ')
 <!---->
 @section('main')
         @if (session('flash_message'))

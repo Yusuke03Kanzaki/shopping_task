@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 
-class shoppingModel extends Model
+class ShoppingModel extends Model
 {
     /*
     ユーザー登録。データベスへ登録
@@ -18,6 +18,7 @@ class shoppingModel extends Model
             'last_name' => $request->last_name,
             'username' => $request->username,
             'email' => $request->email,
+            'password' => $request->password,
             'address' => $request->address,
             'address_2' => $request->address_2,
             'country' => $request->country,

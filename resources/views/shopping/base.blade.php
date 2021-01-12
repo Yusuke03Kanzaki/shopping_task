@@ -62,9 +62,28 @@
       <a href='{{ action('CheckoutController@checkout') }}' class="navbar-brand d-flex align-items-center">
         <strong>会計</strong>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      {{-- <a href='{{ action('CheckoutController@login1') }}' class="navbar-brand d-flex align-items-center">
+        <strong>ログイン</strong>
+      </a> --}}
+      <a href='{{ route('login') }}' class="navbar-brand d-flex align-items-center">
+        <strong>ログイン</strong>
+      </a>
+      <form method="POST" name="form_1" id="form_1" action="{{ route('logout') }}">
+        @csrf
+        <a href="javascript:form_1.submit()" class="navbar-brand d-flex align-items-center">ログアウト</a>
+        {{-- <strong>logput</strong> --}}
+      </form>
+
+      {{-- <a href='{{ route('logout') }}' methos='POST' class="navbar-brand d-flex align-items-center">
+        <strong>ログアウト</strong>
+      </a> --}}
+
+      {{-- <a href='/shopping/resources/views/shopping/login.blade.php' class="navbar-brand d-flex align-items-center">
+        <strong>ログイン</strong>
+      </a> --}}
+      {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> --}}
     </div>
   </div>
 </header>

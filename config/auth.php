@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'user',
     ],
 
     /*
@@ -41,9 +41,14 @@ return [
             'provider' => 'users',
         ],
 
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'user',
+        ],
+
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'user',
             'hash' => false,
         ],
     ],
@@ -71,6 +76,11 @@ return [
             'model' => App\User::class,
         ],
 
+        'user' => [
+            'driver' => 'eloquent',
+            'model' => App\ShoppingModel::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -95,6 +105,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'user' => [
+            'provider' => 'user',
             'table' => 'password_resets',
             'expire' => 60,
         ],

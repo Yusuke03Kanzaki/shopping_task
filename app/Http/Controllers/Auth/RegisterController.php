@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\userModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -68,5 +69,29 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // return user::create([
+        //     // 'first_name' => $request->first_name,
+        //     // 'last_name' => $request->last_name,
+        //     // 'username' => $request->username,
+        //     // 'email' => $request->email,
+        //     // 'password' => $request->password,
+        //     // 'address' => $request->address,
+        //     // 'address_2' => $request->address_2,
+        //     // 'country' => $request->country,
+        //     // 'state' => $request->state,
+        //     // 'zip' => $request->zip,
+
+        //     'first_name' => $data['first_name'],
+        //     'last_name' => $data['last_name'],
+        //     'username' => $data['username'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'address' => $data['address'],
+        //     'address_2' => $data['address_2'],
+        //     'country' => $data['country'],
+        //     'state' => $data['state'],
+        //     'zip' => $data['zip'],
+        // ]);
     }
 }

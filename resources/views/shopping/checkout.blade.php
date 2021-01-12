@@ -1,7 +1,7 @@
 <!--共通レイアウト-->
 @extends('shopping.base')
 <!---->
-@section('title', 'Album example · Bootstrap')
+@section('title', '会計ページ')
 <!---->
 @section('main')
 @if (session('flash_message'))
@@ -55,21 +55,21 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">請求先住所</h4>
-      <form class="needs-validation" action="buy" method="post" novalidate>
+      <form class="needs-validation" action="buy" method="post">  <!--novalidateを削除しvaldation機能を無くした-->
         @csrf
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">名前</label>
             <input type="text" class="form-control" name="first_name" id="firstName" placeholder="" value="" required>
             <div class="invalid-feedback">
-                名字を入力してください。
+                名前を入力してください。
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">苗字</label>
             <input type="text" class="form-control" name="last_name" id="lastName" placeholder="" value="" required>
             <div class="invalid-feedback">
-              名前を入力してください。
+                苗字を入力してください。
             </div>
           </div>
         </div>
@@ -88,18 +88,31 @@
         </div>
 
         <div class="mb-3">
-          <label for="email">メールアドレス <span class="text-muted">(オプション)</span></label>
-          <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
+          <label for="email">メールアドレス</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com" required>
           <div class="invalid-feedback">
-            有効なメールアドレスを入力してください。
+              有効なメールアドレスを入力してください。
           </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password">パスワード</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="" required>
+            <div class="invalid-feedback">
+                有効なパスワードを入力してください。
+            </div>
+            {{-- @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror--}}
         </div>
 
         <div class="mb-3">
           <label for="address">送り先住所</label>
           <input type="text" class="form-control" name="address" id="address" placeholder="東京都千代田区千代田1-1" required>
           <div class="invalid-feedback">
-            送り先住所を入力してください。
+              送り先住所を入力してください。
           </div>
         </div>
 

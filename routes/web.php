@@ -19,3 +19,10 @@ Route::get('total', 'CheckoutController@total');  //投稿処理。セッショ�
 Route::post('buy', 'CheckoutController@buy');  //投稿処理。セッション管理。
 Route::post('cart', 'CheckoutController@cart'); //カートへ商品を追加する
 Route::post('delete', 'CheckoutController@delete');  //投稿処理。セッション管理。
+// Route::get('login1', 'CheckoutController@login1');  //checkoutページを表示
+
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+

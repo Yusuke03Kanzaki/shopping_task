@@ -15,7 +15,7 @@ class CheckoutController extends Controller
     {
         $items = ShoppingModel::get_items();
 
-        return view('shopping.index', compact('items'));
+        return view('shopping.home', compact('items'));
     }
 
     /*
@@ -41,7 +41,9 @@ class CheckoutController extends Controller
     }
 
     /*
-    カートに商品がなければメッセージ表示後にリダイレクト。ユーザー登録のためのモデル呼び出し。セッション削除。HPにリダイレクト
+    userテーブルに顧客情報を登録。
+    カートに商品がなければメッセージ表示後にリダイレクト。
+    ユーザー登録のためのモデル呼び出し。セッション削除。HPにリダイレクト
     */
     function buy(Request $request)
     {
@@ -51,6 +53,8 @@ class CheckoutController extends Controller
             return redirect('/checkout');
         }
 
+        // $this->validator($request);
+
         ShoppingModel::user($request);
 
         $request->session()->flush();
@@ -58,6 +62,20 @@ class CheckoutController extends Controller
         session()->flash('flash_message', 'ご購入ありがとうございます');
 
         return redirect('/');
+    }
+
+    // function validator($data)
+    // {
+    //     return validator::make($data, [
+    //         'username' => ['required', 'string', 'min:5']
+    // ]);
+    // }
+
+    function validator($request)
+    {
+        $request->validate([
+            'password' => ['required', 'min:5']
+        ]);
     }
 
     //セッション取得。カートに入れる
@@ -96,5 +114,11 @@ class CheckoutController extends Controller
         }
 
         return $total;
+    }
+
+    function login1()
+    {
+        // echo 111;
+        return view('shopping.login');
     }
 }
